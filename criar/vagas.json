@@ -1,0 +1,5 @@
+{
+  "total": 20,
+  "restantes": 20,
+  "_leiame": "Quantas vagas da condicao de R$ 65 ainda existem. A pagina le este arquivo a cada abertura. Para dar baixa numa venda, diminua 'restantes' e publique de novo - nao precisa mexer no index.html."
+}

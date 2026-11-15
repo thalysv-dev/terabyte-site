@@ -1,0 +1,1028 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Monte seu site | TeraByte</title>
+<meta name="description" content="Escolha o modelo, a cor e conte como seu negócio funciona. Você vê a prévia na hora e o site vai pro ar no mesmo dia. Plano Intermediário por R$ 65 por mês nesta condição.">
+<meta name="theme-color" content="#e9edf2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
+<style>
+  /* Conceito: mesma linguagem do site da TeraByte - vidro fosco sobre manchas de cor
+     desfocadas. Coluna única no celular; no desktop os campos ficam à esquerda e a
+     prévia do site gruda à direita. A cor forte vive no fundo e na prévia; o resto
+     é tinta escura sobre vidro. */
+  :root {
+    --bg: #e9edf2;
+    --ink: #0c1424;
+    --ink-2: #46546a;
+    --ink-3: #6b7a90;
+    --glass: rgba(255, 255, 255, 0.55);
+    --glass-strong: rgba(255, 255, 255, 0.8);
+    --edge: rgba(255, 255, 255, 0.85);
+    --edge-soft: rgba(12, 20, 36, 0.08);
+    --shadow: 0 1px 0 rgba(255, 255, 255, 0.9) inset, 0 24px 60px -24px rgba(12, 20, 36, 0.28);
+    --shadow-sm: 0 1px 0 rgba(255, 255, 255, 0.8) inset, 0 10px 24px -14px rgba(12, 20, 36, 0.25);
+    --btn-bg: #0c1424;
+    --btn-fg: #f6f8fb;
+    --teal: #0b7f7b;
+    --teal-soft: rgba(11, 127, 123, 0.12);
+    --zap-fg: #ffffff;
+    --alerta: #b4482d;
+    --field-bg: rgba(255, 255, 255, 0.72);
+    --blob-1: #46dccf;
+    --blob-2: #ff9170;
+    --blob-3: #ffd978;
+    --blob-alpha: 0.7;
+    --font-display: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+    --font-body: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+    --font-mono: "DM Mono", ui-monospace, "SF Mono", Menlo, monospace;
+    --radius-lg: 28px;
+    --radius-md: 20px;
+    --radius-sm: 14px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --bg: #070b14;
+      --ink: #eef2f8;
+      --ink-2: #aab6c8;
+      --ink-3: #7f8ca1;
+      --glass: rgba(26, 34, 52, 0.5);
+      --glass-strong: rgba(30, 40, 60, 0.74);
+      --edge: rgba(255, 255, 255, 0.16);
+      --edge-soft: rgba(255, 255, 255, 0.1);
+      --shadow: 0 1px 0 rgba(255, 255, 255, 0.1) inset, 0 28px 70px -28px rgba(0, 0, 0, 0.7);
+      --shadow-sm: 0 1px 0 rgba(255, 255, 255, 0.08) inset, 0 12px 26px -16px rgba(0, 0, 0, 0.8);
+      --btn-bg: #eef2f8;
+      --btn-fg: #0c1424;
+      --teal: #5fe3d8;
+      --teal-soft: rgba(95, 227, 216, 0.14);
+      --zap-fg: #04211f;
+      --alerta: #ff9f84;
+      --field-bg: rgba(12, 18, 30, 0.5);
+      --blob-1: #0e8f89;
+      --blob-2: #b4482d;
+      --blob-3: #8c6a12;
+      --blob-alpha: 0.65;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #070b14;
+    --ink: #eef2f8;
+    --ink-2: #aab6c8;
+    --ink-3: #7f8ca1;
+    --glass: rgba(26, 34, 52, 0.5);
+    --glass-strong: rgba(30, 40, 60, 0.74);
+    --edge: rgba(255, 255, 255, 0.16);
+    --edge-soft: rgba(255, 255, 255, 0.1);
+    --shadow: 0 1px 0 rgba(255, 255, 255, 0.1) inset, 0 28px 70px -28px rgba(0, 0, 0, 0.7);
+    --shadow-sm: 0 1px 0 rgba(255, 255, 255, 0.08) inset, 0 12px 26px -16px rgba(0, 0, 0, 0.8);
+    --btn-bg: #eef2f8;
+    --btn-fg: #0c1424;
+    --teal: #5fe3d8;
+    --teal-soft: rgba(95, 227, 216, 0.14);
+    --zap-fg: #04211f;
+    --alerta: #ff9f84;
+    --field-bg: rgba(12, 18, 30, 0.5);
+    --blob-1: #0e8f89;
+    --blob-2: #b4482d;
+    --blob-3: #8c6a12;
+    --blob-alpha: 0.65;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.55;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  [hidden] { display: none !important; }
+
+  /* manchas de cor desfocadas no fundo */
+  .manchas { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+  .mancha { position: absolute; border-radius: 50%; filter: blur(70px); opacity: var(--blob-alpha); }
+  .m1 { width: 60vmax; height: 60vmax; background: var(--blob-1); top: -22vmax; left: -18vmax; }
+  .m2 { width: 48vmax; height: 48vmax; background: var(--blob-2); top: 32vmax; right: -20vmax; }
+  .m3 { width: 44vmax; height: 44vmax; background: var(--blob-3); bottom: -20vmax; left: 10vmax; }
+
+  .limite {
+    width: 100%;
+    max-width: 1080px;
+    margin-inline: auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+
+  /* --- barra fixa com o prazo ------------------------------------------------ */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0 0 auto;
+    height: env(safe-area-inset-top, 0px);
+    z-index: 11;
+    background: var(--glass-strong);
+  }
+  .barra {
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 10;
+    background: var(--glass-strong);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--edge-soft);
+  }
+  .barra .limite {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-block: 10px;
+  }
+  .marca {
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    font-size: 1.05rem;
+  }
+  .marca span { color: var(--teal); }
+  .prazo {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--ink-2);
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    line-height: 1.3;
+  }
+  .prazo b { color: var(--ink); font-weight: 500; }
+
+  /* --- blocos gerais -------------------------------------------------------- */
+  section { padding-block: clamp(32px, 7vw, 64px); }
+  .vidro {
+    background: var(--glass);
+    -webkit-backdrop-filter: saturate(170%) blur(22px);
+    backdrop-filter: saturate(170%) blur(22px);
+    border: 1px solid var(--edge);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+  }
+  h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.025em; text-wrap: balance; margin: 0; }
+  h1 { font-size: clamp(2.1rem, 8vw, 3.6rem); line-height: 1.04; font-weight: 700; }
+  h2 { font-size: clamp(1.5rem, 4.6vw, 2.2rem); line-height: 1.12; font-weight: 700; }
+  h3 { font-size: 1.08rem; line-height: 1.3; font-weight: 600; }
+  p { margin: 0; }
+  .rotulo {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--teal);
+  }
+
+  /* --- topo ------------------------------------------------------------------ */
+  .topo .limite { display: grid; gap: 22px; }
+  @media (min-width: 900px) {
+    .topo .limite { grid-template-columns: minmax(0, 1fr) 390px; align-items: center; gap: 48px; }
+  }
+  .topo .texto { display: grid; gap: 14px; max-width: 34ch; }
+  .topo .sub { color: var(--ink-2); font-size: 1.05rem; max-width: 42ch; }
+
+  .preco-cartao { padding: 20px; display: grid; gap: 14px; }
+  .preco-linha { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .preco-de {
+    font-family: var(--font-mono);
+    color: var(--ink-3);
+    text-decoration: line-through;
+    font-size: 0.95rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .preco-por {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 9vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    font-variant-numeric: tabular-nums;
+  }
+  .preco-por small { font-size: 0.33em; font-weight: 500; color: var(--ink-2); letter-spacing: 0; }
+  .preco-nota { color: var(--ink-2); font-size: 0.9rem; }
+
+  .vagas { display: grid; gap: 8px; }
+  .vagas-topo {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 10px;
+    font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-2);
+    font-variant-numeric: tabular-nums;
+  }
+  .vagas-topo b { color: var(--ink); font-weight: 500; }
+  .trilha { height: 7px; border-radius: 99px; background: var(--edge-soft); overflow: hidden; }
+  .trilha i { display: block; height: 100%; border-radius: 99px; background: var(--teal); width: 0; transition: width 0.6s ease; }
+
+  .botao {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 15px 26px; border-radius: 99px; border: 0;
+    background: var(--btn-bg); color: var(--btn-fg);
+    font-family: var(--font-body); font-size: 1rem; font-weight: 600;
+    cursor: pointer; text-decoration: none; text-align: center;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+  }
+  .botao:hover { transform: translateY(-1px); }
+  .botao:active { transform: translateY(0); }
+  .botao.cheio { width: 100%; }
+  .botao.zap { background: var(--teal); color: var(--zap-fg); }
+  .botao-secundario {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: var(--ink); font-weight: 600; text-decoration: none;
+    border-bottom: 1px solid var(--edge-soft); padding-bottom: 2px;
+  }
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
+    outline: 2px solid var(--teal); outline-offset: 3px;
+  }
+
+  /* --- prova: modelos reais -------------------------------------------------- */
+  .prova .limite { display: grid; gap: 18px; }
+  .prova-cabeca { display: grid; gap: 8px; max-width: 46ch; }
+  .prova-cabeca p { color: var(--ink-2); }
+  .galeria { display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); }
+  @media (min-width: 640px) { .galeria { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .modelo-cartao { overflow: hidden; display: grid; grid-template-columns: minmax(0, 1fr); min-width: 0; }
+  .modelo-cartao img {
+    width: 100%; height: auto; max-width: 100%;
+    aspect-ratio: 4 / 5; object-fit: cover; object-position: top center;
+  }
+  .modelo-corpo { padding: 16px; display: grid; gap: 8px; min-width: 0; }
+  .modelo-corpo p { color: var(--ink-2); font-size: 0.92rem; }
+
+  /* --- o que entra ----------------------------------------------------------- */
+  .inclui .limite { display: grid; gap: 18px; }
+  .inclui-cartao { padding: 22px; display: grid; gap: 16px; }
+  .lista { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  .lista li { display: grid; grid-template-columns: 20px 1fr; gap: 10px; align-items: start; }
+  .tique { color: var(--teal); font-weight: 700; line-height: 1.5; }
+
+  /* --- montar --------------------------------------------------------------- */
+  .montar .limite { display: grid; gap: 22px; }
+  .montar-cabeca { display: grid; gap: 8px; max-width: 46ch; }
+  .montar-cabeca p { color: var(--ink-2); }
+  .oficina { display: grid; gap: 20px; align-items: start; }
+  @media (min-width: 900px) { .oficina { grid-template-columns: minmax(0, 1fr) 340px; } }
+
+  .campos { display: grid; gap: 16px; min-width: 0; }
+  .passo { padding: 20px; display: grid; gap: 14px; }
+  .passo-titulo { display: flex; align-items: center; gap: 10px; }
+  .passo-num {
+    flex: 0 0 auto; width: 26px; height: 26px; border-radius: 50%;
+    background: var(--teal-soft); color: var(--teal);
+    font-family: var(--font-mono); font-size: 0.78rem; font-weight: 500;
+    display: grid; place-items: center;
+  }
+  .dica { color: var(--ink-3); font-size: 0.88rem; }
+
+  .escolhas { display: grid; gap: 10px; }
+  @media (min-width: 520px) { .escolhas.duas { grid-template-columns: 1fr 1fr; } }
+  .escolha { position: relative; }
+  .escolha input { position: absolute; opacity: 0; width: 0; height: 0; }
+  .escolha span {
+    display: grid; gap: 4px; cursor: pointer;
+    padding: 14px; border-radius: var(--radius-sm);
+    border: 1px solid var(--edge-soft); background: var(--field-bg);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .escolha span b { font-weight: 600; font-size: 0.98rem; }
+  .escolha span i { font-style: normal; color: var(--ink-3); font-size: 0.85rem; line-height: 1.4; }
+  .escolha input:checked + span { border-color: var(--teal); box-shadow: 0 0 0 1px var(--teal) inset; }
+  .escolha input:focus-visible + span { outline: 2px solid var(--teal); outline-offset: 3px; }
+
+  .cores { display: grid; grid-template-columns: repeat(auto-fit, minmax(96px, 1fr)); gap: 10px; }
+  .cor input { position: absolute; opacity: 0; width: 0; height: 0; }
+  .cor span {
+    display: grid; gap: 8px; cursor: pointer; padding: 10px;
+    border-radius: var(--radius-sm); border: 1px solid var(--edge-soft);
+    background: var(--field-bg); text-align: center;
+  }
+  .cor span em { font-style: normal; font-size: 0.78rem; color: var(--ink-2); line-height: 1.3; }
+  .amostra { height: 34px; border-radius: 9px; display: flex; overflow: hidden; border: 1px solid var(--edge-soft); }
+  .amostra i { flex: 1; }
+  .cor input:checked + span { border-color: var(--teal); box-shadow: 0 0 0 1px var(--teal) inset; }
+  .cor input:focus-visible + span { outline: 2px solid var(--teal); outline-offset: 3px; }
+
+  label.linha { display: grid; gap: 6px; min-width: 0; }
+  label.linha > b { font-weight: 600; font-size: 0.94rem; }
+  label.linha > b s { text-decoration: none; color: var(--ink-3); font-weight: 400; }
+  input[type="text"], input[type="tel"], textarea {
+    width: 100%; font: inherit; color: var(--ink);
+    background: var(--field-bg); border: 1px solid var(--edge-soft);
+    border-radius: var(--radius-sm); padding: 12px 14px;
+    min-width: 0;
+  }
+  textarea { resize: vertical; min-height: 96px; line-height: 1.5; }
+  input::placeholder, textarea::placeholder { color: var(--ink-3); }
+  .dupla { display: grid; gap: 14px; }
+  @media (min-width: 520px) { .dupla { grid-template-columns: 1fr 1fr; } }
+  .contador { font-family: var(--font-mono); font-size: 0.74rem; color: var(--ink-3); text-align: right; font-variant-numeric: tabular-nums; }
+
+  .erro { color: var(--alerta); font-size: 0.88rem; }
+
+  /* --- prévia --------------------------------------------------------------- */
+  .previa-coluna { display: grid; gap: 10px; min-width: 0; }
+  @media (min-width: 900px) {
+    .previa-coluna { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 64px); }
+  }
+  .previa-rotulo { font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.12em; }
+  .aparelho {
+    --p-fundo: #faf6ef; --p-tinta: #22313a; --p-destaque: #3c5a66; --p-suave: #e8ddcc;
+    border-radius: 26px; padding: 8px; background: var(--glass-strong);
+    border: 1px solid var(--edge); box-shadow: var(--shadow); overflow: hidden;
+    min-width: 0;
+  }
+  .tela {
+    border-radius: 19px; overflow: hidden; background: var(--p-fundo); color: var(--p-tinta);
+    aspect-ratio: 9 / 15; max-width: 100%; min-width: 0; display: flex; flex-direction: column;
+    font-size: 11px; line-height: 1.4;
+  }
+  .tela-rolo { overflow: hidden; display: flex; flex-direction: column; height: 100%; min-width: 0; }
+  .tela-rolo * { min-width: 0; overflow-wrap: anywhere; }
+  .t-barra {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 9px 11px; border-bottom: 1px solid color-mix(in srgb, var(--p-tinta) 12%, transparent);
+    flex: 0 0 auto;
+  }
+  .t-logo { font-weight: 700; font-size: 11px; letter-spacing: -0.01em; }
+  .t-menu { display: flex; gap: 7px; opacity: 0.5; font-size: 9px; }
+  .t-corpo { padding: 12px 11px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; flex: 1 1 auto; min-height: 0; overflow: hidden; }
+  .t-selo {
+    font-size: 8px; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--p-destaque); font-weight: 700;
+  }
+  .t-titulo { font-size: 16px; line-height: 1.12; font-weight: 700; letter-spacing: -0.02em; }
+  .t-texto { font-size: 10px; opacity: 0.78; }
+  .t-botao {
+    background: var(--p-destaque); color: var(--p-fundo);
+    padding: 7px 12px; border-radius: 99px; font-size: 9.5px; font-weight: 700;
+    justify-self: start;
+  }
+  .t-foto {
+    border-radius: 9px; background: var(--p-suave); aspect-ratio: 16 / 9;
+    display: grid; place-items: center; font-size: 8px; opacity: 0.85;
+    color: color-mix(in srgb, var(--p-tinta) 55%, transparent);
+  }
+  .t-fitas { display: grid; gap: 5px; }
+  .t-fita { background: var(--p-suave); border-radius: 7px; padding: 6px 8px; font-size: 9px; }
+  .t-fita b { display: block; font-size: 9px; font-weight: 700; }
+  .t-fita span { opacity: 0.7; font-size: 8.5px; }
+  .t-fichas { display: flex; flex-wrap: wrap; gap: 4px; }
+  .t-ficha {
+    border: 1px solid var(--p-destaque); color: var(--p-destaque);
+    border-radius: 99px; padding: 2px 7px; font-size: 8px; font-weight: 600;
+  }
+  .t-rodape {
+    margin-top: auto; padding: 8px 11px; flex: 0 0 auto;
+    border-top: 1px solid color-mix(in srgb, var(--p-tinta) 12%, transparent);
+    font-size: 8.5px; opacity: 0.65; display: grid; gap: 2px;
+  }
+  .previa-nota { color: var(--ink-3); font-size: 0.82rem; }
+
+  /* --- fechar ---------------------------------------------------------------- */
+  .fechar .limite { display: grid; gap: 18px; }
+  .fechar-cartao { padding: 24px; display: grid; gap: 18px; }
+  .fechar-topo { display: grid; gap: 10px; }
+  .resumo { display: grid; gap: 7px; font-size: 0.92rem; }
+  .resumo div { display: grid; grid-template-columns: 96px 1fr; gap: 10px; }
+  .resumo dt { color: var(--ink-3); font-family: var(--font-mono); font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.08em; padding-top: 2px; }
+  .resumo dd { margin: 0; min-width: 0; overflow-wrap: break-word; }
+  .combinado { display: grid; gap: 10px; }
+  .miudo { color: var(--ink-3); font-size: 0.84rem; line-height: 1.5; }
+
+  /* --- rodapé e pílula ------------------------------------------------------- */
+  footer { padding-block: 30px 40px; border-top: 1px solid var(--edge-soft); }
+  footer .limite { display: grid; gap: 8px; }
+  footer p { color: var(--ink-3); font-size: 0.85rem; }
+
+  .pilula {
+    position: fixed; z-index: 9;
+    right: calc(16px + env(safe-area-inset-right, 0px));
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    padding: 11px 18px; border-radius: 99px; border: 1px solid var(--edge);
+    background: var(--glass-strong); color: var(--ink);
+    -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px);
+    box-shadow: var(--shadow-sm);
+    font-size: 0.88rem; font-weight: 600; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 7px;
+  }
+  @media (min-width: 900px) { .pilula { display: none; } }
+</style>
+</head>
+<body>
+
+<div class="manchas" aria-hidden="true">
+  <div class="mancha m1"></div>
+  <div class="mancha m2"></div>
+  <div class="mancha m3"></div>
+</div>
+
+<header class="barra">
+  <div class="limite">
+    <div class="marca">TeraByte<span>.</span></div>
+    <div class="prazo" id="prazo" aria-live="off">
+      <b id="prazo-numero">—</b><br>para esta condição
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="topo">
+    <div class="limite">
+      <div class="texto">
+        <span class="rotulo">Condição desta semana</span>
+        <h1>Seu site no ar hoje.</h1>
+        <p class="sub">Escolha um modelo, me diga como seu negócio funciona e veja a prévia aqui mesmo. Você só paga depois de receber o contrato.</p>
+      </div>
+
+      <div class="vidro preco-cartao">
+        <div>
+          <div class="preco-linha">
+            <span class="preco-de">De R$ 167 por mês</span>
+          </div>
+          <div class="preco-linha">
+            <span class="preco-por">R$ 65<small> / mês</small></span>
+          </div>
+        </div>
+        <p class="preco-nota">Plano Intermediário, o mesmo da tabela. Mensalidade no cartão.</p>
+        <div class="vagas">
+          <div class="vagas-topo">
+            <span>Vagas nesta condição</span>
+            <span><b id="vagas-restantes">—</b> de <span id="vagas-total">20</span></span>
+          </div>
+          <div class="trilha" role="img" aria-label="Vagas restantes nesta condição">
+            <i id="vagas-barra"></i>
+          </div>
+        </div>
+        <a class="botao cheio" href="#montar">Montar o meu</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="prova">
+    <div class="limite">
+      <div class="prova-cabeca">
+        <span class="rotulo">Modelos prontos</span>
+        <h2>Veja dois sites de verdade.</h2>
+        <p>São páginas que você pode abrir, rolar e clicar agora. O seu nasce com essa mesma estrutura, com as suas cores, os seus textos e as suas fotos.</p>
+      </div>
+      <div class="galeria">
+        <article class="vidro modelo-cartao">
+          <img src="modelo-consultorio.jpg" alt="Prévia do modelo para consultório, com o registro do conselho no topo e agendamento pelo WhatsApp." loading="lazy" width="1080" height="1350">
+          <div class="modelo-corpo">
+            <h3>Consultório</h3>
+            <p>Para quem atende com hora marcada. O registro do conselho aparece no topo, as etapas da consulta ficam explicadas e o paciente agenda pelo WhatsApp.</p>
+            <a class="botao-secundario" href="../modelos/consultorio/" target="_blank" rel="noopener">Abrir o modelo</a>
+          </div>
+        </article>
+        <article class="vidro modelo-cartao">
+          <img src="modelo-servicos.jpg" alt="Prévia do modelo para prestador de serviço, com botão de orçamento e bairros atendidos." loading="lazy" width="1080" height="1350">
+          <div class="modelo-corpo">
+            <h3>Prestador de serviço</h3>
+            <p>Para quem vai até o cliente. O botão de orçamento acompanha a página inteira, com os bairros que você atende e as fotos dos trabalhos.</p>
+            <a class="botao-secundario" href="../modelos/servicos/" target="_blank" rel="noopener">Abrir o modelo</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="inclui">
+    <div class="limite">
+      <div class="vidro inclui-cartao">
+        <h2>O que entra</h2>
+        <ul class="lista">
+          <li><span class="tique" aria-hidden="true">&check;</span><span>Site de 3 a 5 páginas, feito com o seu material</span></li>
+          <li><span class="tique" aria-hidden="true">&check;</span><span>Busca local configurada, para aparecer para quem procura perto de você</span></li>
+          <li><span class="tique" aria-hidden="true">&check;</span><span>Seu perfil do Google e do Google Maps organizado</span></li>
+          <li><span class="tique" aria-hidden="true">&check;</span><span>Botão de WhatsApp em toda a página</span></li>
+          <li><span class="tique" aria-hidden="true">&check;</span><span>Relatório de visitas, para você ver quanta gente chegou</span></li>
+          <li><span class="tique" aria-hidden="true">&check;</span><span>Alterações no texto e nas fotos quando você pedir, feitas por mim</span></li>
+        </ul>
+        <p class="miudo">Endereço próprio incluído. Sem taxa de montagem e sem cobrança de instalação.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="montar" id="montar">
+    <div class="limite">
+      <div class="montar-cabeca">
+        <span class="rotulo">Monte agora</span>
+        <h2>Escolha como vai ficar.</h2>
+        <p>Vai mudando e olhando a prévia do lado. Nada é definitivo: depois de pronto você pede os ajustes que quiser.</p>
+      </div>
+
+      <form class="oficina" id="formulario" novalidate>
+        <div class="campos">
+
+          <div class="vidro passo">
+            <div class="passo-titulo">
+              <span class="passo-num" aria-hidden="true">1</span>
+              <h3>Que tipo de negócio é o seu?</h3>
+            </div>
+            <div class="escolhas duas" role="radiogroup" aria-label="Tipo de negocio">
+              <label class="escolha">
+                <input type="radio" name="modelo" value="consultorio" checked>
+                <span>
+                  <b>Consultório</b>
+                  <i>Atendo com hora marcada, no meu espaço</i>
+                </span>
+              </label>
+              <label class="escolha">
+                <input type="radio" name="modelo" value="servicos">
+                <span>
+                  <b>Serviço</b>
+                  <i>Vou até o cliente ou faço orçamento</i>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="vidro passo">
+            <div class="passo-titulo">
+              <span class="passo-num" aria-hidden="true">2</span>
+              <h3>A cor</h3>
+            </div>
+            <div class="cores" id="cores" role="radiogroup" aria-label="Cor do site"></div>
+            <p class="dica">Dá para trocar depois, e também mandar a sua cor exata ou o seu logo pelo WhatsApp.</p>
+          </div>
+
+          <div class="vidro passo">
+            <div class="passo-titulo">
+              <span class="passo-num" aria-hidden="true">3</span>
+              <h3>O nome</h3>
+            </div>
+            <div class="dupla">
+              <label class="linha">
+                <b>Nome do negócio</b>
+                <input type="text" id="nome" name="nome" placeholder="Ex.: Mariana Costa" maxlength="60" autocomplete="organization">
+              </label>
+              <label class="linha">
+                <b>Cidade</b>
+                <input type="text" id="cidade" name="cidade" placeholder="Ex.: Santa Luzia" maxlength="40" autocomplete="address-level2">
+              </label>
+            </div>
+            <label class="linha">
+              <b>O que você faz <s>— em poucas palavras</s></b>
+              <input type="text" id="segmento" name="segmento" placeholder="Ex.: Fonoaudióloga" maxlength="50">
+            </label>
+          </div>
+
+          <div class="vidro passo">
+            <div class="passo-titulo">
+              <span class="passo-num" aria-hidden="true">4</span>
+              <h3>Como seu negócio funciona</h3>
+            </div>
+            <label class="linha">
+              <b>Explique com suas palavras</b>
+              <textarea id="sobre" name="sobre" maxlength="600" placeholder="Conte como é o atendimento do começo ao fim: como a pessoa marca, o que acontece quando chega, o que você precisa saber antes. Escreva do jeito que você falaria."></textarea>
+              <span class="contador"><span id="sobre-conta">0</span>/600</span>
+            </label>
+            <p class="dica">Esse é o texto que mais importa. É daqui que sai o conteúdo do site.</p>
+          </div>
+
+          <div class="vidro passo">
+            <div class="passo-titulo">
+              <span class="passo-num" aria-hidden="true">5</span>
+              <h3>O que você oferece</h3>
+            </div>
+            <label class="linha">
+              <b>Um por linha <s>— até seis</s></b>
+              <textarea id="servicos" name="servicos" maxlength="400" placeholder="Avaliação&#10;Acompanhamento semanal&#10;Relatório para a escola"></textarea>
+            </label>
+          </div>
+
+          <div class="vidro passo">
+            <div class="passo-titulo">
+              <span class="passo-num" aria-hidden="true">6</span>
+              <h3>Seu contato</h3>
+            </div>
+            <div class="dupla">
+              <label class="linha">
+                <b>WhatsApp</b>
+                <input type="tel" id="whatsapp" name="whatsapp" placeholder="(31) 99999-9999" inputmode="tel" maxlength="20" autocomplete="tel">
+              </label>
+              <label class="linha">
+                <b>Telefone <s>— se tiver</s></b>
+                <input type="tel" id="telefone" name="telefone" placeholder="(31) 3333-3333" inputmode="tel" maxlength="20">
+              </label>
+            </div>
+            <label class="linha">
+              <b>Endereço <s>— se o cliente vai até você</s></b>
+              <input type="text" id="endereco" name="endereco" placeholder="Rua, número, bairro" maxlength="120" autocomplete="street-address">
+            </label>
+            <label class="linha" id="campo-conselho">
+              <b>Registro do conselho <s>— se a sua profissão exige</s></b>
+              <input type="text" id="conselho" name="conselho" placeholder="Ex.: CRFa 6-14872" maxlength="40">
+            </label>
+          </div>
+
+          <div class="vidro passo">
+            <div class="passo-titulo">
+              <span class="passo-num" aria-hidden="true">7</span>
+              <h3>Fotos, logo e vídeos</h3>
+            </div>
+            <p class="dica">Não precisa enviar nada aqui. Depois de apertar o botão abaixo, a conversa abre no WhatsApp e você manda as fotos, o logo e os vídeos por lá, do jeito que já está acostumado. Se não tiver, eu uso fotos licenciadas e troco quando você tiver as suas.</p>
+          </div>
+
+        </div>
+
+        <aside class="previa-coluna">
+          <span class="previa-rotulo">Prévia</span>
+          <div class="aparelho" id="aparelho">
+            <div class="tela">
+              <div class="tela-rolo" id="tela"></div>
+            </div>
+          </div>
+          <p class="previa-nota">Esboço da primeira tela, para você ter ideia do resultado. O site final tem todas as páginas e as suas fotos.</p>
+        </aside>
+      </form>
+    </div>
+  </section>
+
+  <section class="fechar" id="fechar">
+    <div class="limite">
+      <div class="vidro fechar-cartao">
+        <div class="fechar-topo">
+          <span class="rotulo">Para seguir</span>
+          <h2>Pronto. Agora me manda.</h2>
+          <p class="preco-nota">Eu recebo tudo isso no WhatsApp, monto o site e te mando o endereço no mesmo dia. O contrato vai antes de qualquer pagamento, para você ler com calma.</p>
+        </div>
+
+        <dl class="resumo" id="resumo"></dl>
+
+        <div class="combinado">
+          <div class="preco-linha">
+            <span class="preco-de">De R$ 167</span>
+            <span class="preco-por" style="font-size:2rem;">R$ 65<small> / mês</small></span>
+          </div>
+          <div class="vagas">
+            <div class="vagas-topo">
+              <span>Vagas nesta condição</span>
+              <span><b id="vagas-restantes-2">—</b> de <span id="vagas-total-2">20</span></span>
+            </div>
+            <div class="trilha" aria-hidden="true"><i id="vagas-barra-2"></i></div>
+          </div>
+        </div>
+
+        <p class="erro" id="erro" hidden></p>
+        <a class="botao zap cheio" id="enviar" href="#">Mandar pro Lucas no WhatsApp</a>
+        <p class="miudo">A condição vale até <span id="prazo-data">sexta, 17h</span> ou enquanto houver vaga. O valor de R$ 65 por mês fica fixo enquanto a assinatura estiver ativa.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="limite">
+    <p id="rodape-ano">© TeraByte</p>
+    <p>TeraByte — Desenvolvimento de Sistemas. Santa Luzia, MG.</p>
+  </div>
+</footer>
+
+<a class="pilula" href="#aparelho">Ver prévia</a>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ------------------------------------------------------------------ ajustes */
+  // WhatsApp do Lucas, só dígitos com DDD.
+  var WHATSAPP_LUCAS = "31975283106";
+  // Fim da condição, no horário de Brasília. Trocar aqui quando mudar a campanha.
+  var FIM = new Date("2026-11-20T17:00:00-03:00");
+  // Vagas: o número real vem de vagas.json; este é o reserva se o arquivo faltar.
+  var VAGAS_TOTAL = 20;
+  var VAGAS_RESTANTES = 20;
+
+  var PALETAS = [
+    { id: "ardosia",  nome: "Azul ardósia", fundo: "#faf6ef", tinta: "#22313a", destaque: "#3c5a66", suave: "#e8ddcc" },
+    { id: "oliva",    nome: "Verde oliva",  fundo: "#f7f6f0", tinta: "#23301f", destaque: "#4f6b3a", suave: "#e0e2d2" },
+    { id: "terracota",nome: "Terracota",    fundo: "#fbf5f1", tinta: "#33231d", destaque: "#a65b3d", suave: "#eddcd1" },
+    { id: "petroleo", nome: "Petróleo e amarelo", fundo: "#f1efe9", tinta: "#10333c", destaque: "#c8930a", suave: "#dcd7c9" },
+    { id: "vinho",    nome: "Vinho",        fundo: "#faf4f4", tinta: "#2e1a1e", destaque: "#8c2f3e", suave: "#ecd9db" },
+    { id: "grafite",  nome: "Grafite e azul", fundo: "#f4f5f7", tinta: "#1a1f27", destaque: "#2f5d8f", suave: "#dde3ea" }
+  ];
+
+  /* -------------------------------------------------------------------- apoio */
+  function $(id) { return document.getElementById(id); }
+  function texto(id) { var e = $(id); return e ? String(e.value || "").trim() : ""; }
+  function limpar(s) { return String(s || "").replace(/\s+/g, " ").trim(); }
+  function linhas(s, max) {
+    var lista = String(s || "").split(/\r?\n/).map(limpar).filter(Boolean);
+    return max ? lista.slice(0, max) : lista;
+  }
+
+  /* ------------------------------------------------------------------ paletas */
+  var cores = $("cores");
+  PALETAS.forEach(function (p, i) {
+    var rotulo = document.createElement("label");
+    rotulo.className = "cor";
+    rotulo.style.position = "relative";
+    var entrada = document.createElement("input");
+    entrada.type = "radio";
+    entrada.name = "cor";
+    entrada.value = p.id;
+    entrada.id = "cor-" + p.id;
+    if (i === 0) entrada.checked = true;
+    var caixa = document.createElement("span");
+    var amostra = document.createElement("span");
+    amostra.className = "amostra";
+    [p.fundo, p.suave, p.destaque, p.tinta].forEach(function (c) {
+      var faixa = document.createElement("i");
+      faixa.style.background = c;
+      amostra.appendChild(faixa);
+    });
+    var nome = document.createElement("em");
+    nome.textContent = p.nome;
+    caixa.appendChild(amostra);
+    caixa.appendChild(nome);
+    rotulo.appendChild(entrada);
+    rotulo.appendChild(caixa);
+    cores.appendChild(rotulo);
+  });
+
+  function paletaEscolhida() {
+    var marcado = document.querySelector('input[name="cor"]:checked');
+    var id = marcado ? marcado.value : PALETAS[0].id;
+    for (var i = 0; i < PALETAS.length; i += 1) if (PALETAS[i].id === id) return PALETAS[i];
+    return PALETAS[0];
+  }
+  function modeloEscolhido() {
+    var marcado = document.querySelector('input[name="modelo"]:checked');
+    return marcado ? marcado.value : "consultorio";
+  }
+
+  /* -------------------------------------------------------------------- prévia */
+  function criar(tag, classe, conteudo) {
+    var e = document.createElement(tag);
+    if (classe) e.className = classe;
+    if (conteudo !== undefined && conteudo !== null) e.textContent = conteudo;
+    return e;
+  }
+
+  function desenharPrevia() {
+    var p = paletaEscolhida();
+    var ap = $("aparelho");
+    ap.style.setProperty("--p-fundo", p.fundo);
+    ap.style.setProperty("--p-tinta", p.tinta);
+    ap.style.setProperty("--p-destaque", p.destaque);
+    ap.style.setProperty("--p-suave", p.suave);
+
+    var modelo = modeloEscolhido();
+    var nome = limpar(texto("nome")) || "Seu negócio";
+    var cidade = limpar(texto("cidade"));
+    var segmento = limpar(texto("segmento"));
+    var sobre = limpar(texto("sobre"));
+    var servicos = linhas(texto("servicos"), 4);
+    var endereco = limpar(texto("endereco"));
+    var conselho = limpar(texto("conselho"));
+
+    var tela = $("tela");
+    tela.textContent = "";
+
+    // barra de cima
+    var barra = criar("div", "t-barra");
+    barra.appendChild(criar("div", "t-logo", nome));
+    var menu = criar("div", "t-menu");
+    (modelo === "consultorio" ? ["Sobre", "Consulta", "Contato"] : ["Serviços", "Trabalhos", "Orçamento"])
+      .forEach(function (m) { menu.appendChild(criar("span", null, m)); });
+    barra.appendChild(menu);
+    tela.appendChild(barra);
+
+    var corpo = criar("div", "t-corpo");
+
+    if (modelo === "consultorio") {
+      if (conselho) corpo.appendChild(criar("div", "t-selo", conselho));
+      var titulo = nome;
+      if (segmento) titulo = nome + ", " + segmento.toLowerCase();
+      if (cidade) titulo += " em " + cidade;
+      corpo.appendChild(criar("div", "t-titulo", titulo));
+      corpo.appendChild(criar("div", "t-texto", sobre
+        ? (sobre.length > 150 ? sobre.slice(0, 150) + "…" : sobre)
+        : "Atendimento individual, com horário marcado e avaliação antes de qualquer acompanhamento."));
+      corpo.appendChild(criar("div", "t-botao", "Agendar pelo WhatsApp"));
+      corpo.appendChild(criar("div", "t-foto", "sua foto aqui"));
+      if (servicos.length) {
+        var fitas = criar("div", "t-fitas");
+        servicos.slice(0, 3).forEach(function (s) {
+          var fita = criar("div", "t-fita");
+          fita.appendChild(criar("b", null, s));
+          fitas.appendChild(fita);
+        });
+        corpo.appendChild(fitas);
+      }
+    } else {
+      corpo.appendChild(criar("div", "t-selo", cidade ? "Atende " + cidade + " e região" : "Atende sua região"));
+      corpo.appendChild(criar("div", "t-titulo", segmento
+        ? segmento + (cidade ? " em " + cidade : "")
+        : (cidade ? nome + " em " + cidade : nome)));
+      corpo.appendChild(criar("div", "t-texto", sobre
+        ? (sobre.length > 130 ? sobre.slice(0, 130) + "…" : sobre)
+        : "Orçamento sem compromisso pelo WhatsApp, com equipe própria e hora marcada."));
+      corpo.appendChild(criar("div", "t-botao", "Pedir orçamento"));
+      if (servicos.length) {
+        var fichas = criar("div", "t-fichas");
+        servicos.forEach(function (s) { fichas.appendChild(criar("span", "t-ficha", s)); });
+        corpo.appendChild(fichas);
+      }
+      corpo.appendChild(criar("div", "t-foto", "fotos dos seus trabalhos"));
+    }
+
+    tela.appendChild(corpo);
+
+    var rodape = criar("div", "t-rodape");
+    if (endereco) rodape.appendChild(criar("div", null, endereco));
+    rodape.appendChild(criar("div", null, (cidade ? cidade + " · " : "") + "contato pelo WhatsApp"));
+    tela.appendChild(rodape);
+  }
+
+  /* -------------------------------------------------------------------- resumo */
+  function desenharResumo() {
+    var lista = [
+      ["Modelo", modeloEscolhido() === "consultorio" ? "Consultório" : "Prestador de serviço"],
+      ["Cor", paletaEscolhida().nome],
+      ["Negócio", limpar(texto("nome"))],
+      ["Cidade", limpar(texto("cidade"))],
+      ["Plano", "Intermediário — R$ 65 por mês"]
+    ];
+    var dl = $("resumo");
+    dl.textContent = "";
+    lista.forEach(function (par) {
+      if (!par[1]) return;
+      var div = document.createElement("div");
+      div.appendChild(criar("dt", null, par[0]));
+      div.appendChild(criar("dd", null, par[1]));
+      dl.appendChild(div);
+    });
+  }
+
+  /* ------------------------------------------------------------------- mensagem */
+  function montarMensagem() {
+    var p = [];
+    p.push("Oi Lucas, montei o meu site na página e quero seguir.");
+    p.push("");
+    p.push("Modelo: " + (modeloEscolhido() === "consultorio" ? "Consultório" : "Prestador de serviço"));
+    p.push("Cor: " + paletaEscolhida().nome);
+    p.push("Negócio: " + limpar(texto("nome")));
+    if (texto("segmento")) p.push("O que eu faço: " + limpar(texto("segmento")));
+    if (texto("cidade")) p.push("Cidade: " + limpar(texto("cidade")));
+    p.push("WhatsApp: " + limpar(texto("whatsapp")));
+    if (texto("telefone")) p.push("Telefone: " + limpar(texto("telefone")));
+    if (texto("endereco")) p.push("Endereço: " + limpar(texto("endereco")));
+    if (texto("conselho")) p.push("Registro: " + limpar(texto("conselho")));
+    var servicos = linhas(texto("servicos"), 6);
+    if (servicos.length) {
+      p.push("");
+      p.push("O que eu ofereço:");
+      servicos.forEach(function (s) { p.push("- " + s); });
+    }
+    if (texto("sobre")) {
+      p.push("");
+      p.push("Como funciona meu atendimento:");
+      p.push(limpar(texto("sobre")));
+    }
+    p.push("");
+    p.push("Plano Intermediário por R$ 65 por mês, a condição da página.");
+    return p.join("\n");
+  }
+
+  var enviar = $("enviar");
+  var erro = $("erro");
+
+  function validar() {
+    if (!limpar(texto("nome"))) return { campo: "nome", aviso: "Falta o nome do negócio, no passo 3." };
+    var zap = texto("whatsapp").replace(/\D/g, "");
+    if (zap.length < 10) return { campo: "whatsapp", aviso: "Falta o seu WhatsApp com DDD, no passo 6." };
+    if (!limpar(texto("sobre"))) return { campo: "sobre", aviso: "Falta contar como seu negócio funciona, no passo 4. É o texto que vira o site." };
+    return null;
+  }
+
+  function atualizarLink() {
+    if (validar()) {
+      enviar.removeAttribute("target");
+      enviar.setAttribute("href", "#");
+      return;
+    }
+    enviar.setAttribute("href", "https://wa.me/55" + WHATSAPP_LUCAS + "?text=" + encodeURIComponent(montarMensagem()));
+    enviar.setAttribute("target", "_blank");
+    enviar.setAttribute("rel", "noopener");
+  }
+
+  enviar.addEventListener("click", function (evento) {
+    var falta = validar();
+    if (!falta) { erro.hidden = true; return; }
+    evento.preventDefault();
+    erro.textContent = falta.aviso;
+    erro.hidden = false;
+    var campo = $(falta.campo);
+    if (campo) {
+      campo.focus({ preventScroll: true });
+      campo.scrollIntoView({ block: "center", behavior: "smooth" });
+    }
+  });
+
+  /* -------------------------------------------------------------------- prazo */
+  function escreverPrazo() {
+    var resta = FIM.getTime() - Date.now();
+    var numero = $("prazo-numero");
+    if (resta <= 0) {
+      $("prazo").innerHTML = "<b>Condição encerrada</b><br>fale comigo pelo WhatsApp";
+      return;
+    }
+    var min = Math.floor(resta / 60000);
+    var dias = Math.floor(min / 1440);
+    var horas = Math.floor((min % 1440) / 60);
+    var minutos = min % 60;
+    var partes = [];
+    if (dias) partes.push(dias + "d");
+    if (dias || horas) partes.push(horas + "h");
+    partes.push(minutos + "min");
+    numero.textContent = partes.join(" ");
+  }
+
+  /* -------------------------------------------------------------------- vagas */
+  function escreverVagas() {
+    var restantes = Math.max(0, Math.min(VAGAS_RESTANTES, VAGAS_TOTAL));
+    var pct = VAGAS_TOTAL > 0 ? (restantes / VAGAS_TOTAL) * 100 : 0;
+    ["vagas-restantes", "vagas-restantes-2"].forEach(function (id) {
+      var e = $(id); if (e) e.textContent = String(restantes);
+    });
+    ["vagas-total", "vagas-total-2"].forEach(function (id) {
+      var e = $(id); if (e) e.textContent = String(VAGAS_TOTAL);
+    });
+    ["vagas-barra", "vagas-barra-2"].forEach(function (id) {
+      var e = $(id); if (e) e.style.width = pct + "%";
+    });
+  }
+
+  function buscarVagas() {
+    if (!window.fetch) return;
+    fetch("vagas.json", { cache: "no-store" })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) {
+        if (!d) return;
+        if (typeof d.total === "number" && d.total > 0) VAGAS_TOTAL = d.total;
+        if (typeof d.restantes === "number" && d.restantes >= 0) VAGAS_RESTANTES = d.restantes;
+        escreverVagas();
+      })
+      .catch(function () { /* fica o número reserva */ });
+  }
+
+  /* ------------------------------------------------------------------ ligações */
+  function tudo() {
+    desenharPrevia();
+    desenharResumo();
+    atualizarLink();
+  }
+
+  var formulario = $("formulario");
+  formulario.addEventListener("input", function (evento) {
+    if (evento.target && evento.target.id === "sobre") {
+      $("sobre-conta").textContent = String(evento.target.value.length);
+    }
+    tudo();
+    if (!erro.hidden && !validar()) erro.hidden = true;
+  });
+  formulario.addEventListener("change", tudo);
+  formulario.addEventListener("submit", function (e) { e.preventDefault(); });
+
+  // o campo de conselho só faz sentido para quem atende com hora marcada
+  function alternarConselho() {
+    $("campo-conselho").hidden = modeloEscolhido() !== "consultorio";
+  }
+  formulario.addEventListener("change", alternarConselho);
+
+  var data = new Intl.DateTimeFormat("pt-BR", {
+    weekday: "long", day: "numeric", month: "long", hour: "2-digit", minute: "2-digit",
+    timeZone: "America/Sao_Paulo"
+  }).format(FIM);
+  $("prazo-data").textContent = data;
+  $("rodape-ano").textContent = "© " + new Date().getFullYear() + " TeraByte";
+
+  alternarConselho();
+  escreverVagas();
+  escreverPrazo();
+  tudo();
+  buscarVagas();
+  setInterval(escreverPrazo, 30000);
+})();
+</script>
+
+</body>
+</html>
